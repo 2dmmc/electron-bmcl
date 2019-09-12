@@ -18,6 +18,9 @@ sequelize.addModels([
 
 DirectoryService.getByName('test')
   .then(async (doc) => {
+    if (!doc) {
+      doc = await DirectoryService.add('test', 'E:\\BMCL');
+    }
     const gameService = new GameService(doc);
     const list = await gameService.listVersions();
     console.log(list);
