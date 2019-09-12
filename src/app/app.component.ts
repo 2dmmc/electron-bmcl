@@ -14,7 +14,7 @@ export class AppComponent {
     private translate: TranslateService,
     private databaseService: DatabaseService,
   ) {
-    translate.setDefaultLang('zh-cn');
+    translate.setDefaultLang('zh-CN');
     console.log('AppConfig', AppConfig);
 
     if (electronService.isElectron) {
