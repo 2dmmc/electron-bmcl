@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {DatabaseService} from '..';
+import {DatabaseService} from '../core/services';
 import {Collection} from '@lokidb/loki';
 
 interface SettingSchema {
