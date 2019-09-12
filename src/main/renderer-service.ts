@@ -1,2 +1,3 @@
-export {SettingService} from './service/setting.service';
-export {DirectoryService} from './service/directory.service';
+export * from './service/setting.service';
+export * from './service/directory.service';
+export * from './service/game.service';

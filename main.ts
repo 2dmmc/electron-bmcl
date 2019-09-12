@@ -47,6 +47,8 @@ function createWindow() {
 
 }
 
+
+require('./src/main/index');
 try {
 
   // This method will be called when Electron has finished
@@ -70,8 +72,6 @@ try {
       createWindow();
     }
   });
-
-  require('./src/main');
 
 } catch (e) {
   // Catch Error
