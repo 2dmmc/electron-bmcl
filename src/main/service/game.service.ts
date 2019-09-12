@@ -10,7 +10,7 @@ export class GameService {
     const path = join(this.directory.path, '.minecraft', 'versions');
     const files = await readdir(path);
     return Bluebird.filter(files, async (file) => {
-      const s = await stat(path);
+      const s = await stat(join(path, file));
       return s.isDirectory();
     });
   }

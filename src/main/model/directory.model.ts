@@ -1,8 +1,7 @@
-import {AutoIncrement, Column, Model, PrimaryKey, Table, Unique} from 'sequelize-typescript';
+import {Column, Model, PrimaryKey, Table, Unique} from 'sequelize-typescript';
 
 @Table
 export class DirectoryModel extends Model<DirectoryModel> {
-  @AutoIncrement @PrimaryKey @Column id: number;
-  @Unique @Column name: string;
+  @PrimaryKey @Column name: string;
   @Unique @Column path: string;
 }
