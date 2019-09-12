@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { AppConfig } from '../environments/environment';
+import {Component} from '@angular/core';
+import {DatabaseService, ElectronService} from './@core/services';
+import {TranslateService} from '@ngx-translate/core';
+import {AppConfig} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +11,10 @@ import { AppConfig } from '../environments/environment';
 export class AppComponent {
   constructor(
     public electronService: ElectronService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private databaseService: DatabaseService,
   ) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('zh-cn');
     console.log('AppConfig', AppConfig);
 
     if (electronService.isElectron) {
@@ -24,5 +25,12 @@ export class AppComponent {
     } else {
       console.log('Mode web');
     }
+
+    this.initDatabase();
+  }
+
+  public async initDatabase(): Promise<void> {
+    const initStatus = await this.databaseService.initial();
+    console.log(initStatus);
   }
 }
