@@ -71,6 +71,8 @@ try {
     }
   });
 
+  require('./src/main/ipc');
+
 } catch (e) {
   // Catch Error
   // throw e;

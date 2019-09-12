@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DatabaseService} from './services';
 
 @NgModule({
   declarations: [],
@@ -8,7 +7,6 @@ import {DatabaseService} from './services';
     CommonModule
   ],
   providers: [
-    DatabaseService
   ]
 })
 export class CoreModule {

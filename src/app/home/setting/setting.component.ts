@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {SettingService} from './setting.service';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +7,10 @@ import {SettingService} from './setting.service';
 })
 export class SettingComponent implements OnInit {
 
-  constructor(private settingService: SettingService) {
+  constructor() {
   }
 
   ngOnInit() {
-    alert(this.settingService.getByKey('2333'));
   }
 
 }
