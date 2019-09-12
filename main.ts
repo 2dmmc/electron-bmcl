@@ -71,7 +71,7 @@ try {
     }
   });
 
-  require('./src/main/ipc');
+  require('./src/main');
 
 } catch (e) {
   // Catch Error

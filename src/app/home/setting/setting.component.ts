@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {DirectoryService} from '../../../main/service/directory.service';
+import {SettingService} from '../../../main/service/setting.service';
+import {ElectronService} from '../../@core/services';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +9,21 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent implements OnInit {
+  private settingService: typeof SettingService;
+  private directoryService: typeof DirectoryService;
 
-  constructor() {
+  constructor(electronService: ElectronService) {
+    const rendererService = electronService.remote.require('./src/main/renderer-service');
+    this.settingService = rendererService.SettingService;
+    this.directoryService = rendererService.DirectoryService;
+    console.log(this.settingService);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const username = await this.settingService.getByKey('username');
+    console.log(username);
+    const directories = await this.directoryService.list();
+    console.log(directories);
   }
 
 }

@@ -4,12 +4,12 @@ import {DirectoryModel} from './model/directory.model';
 import {SettingModel} from './model/setting.model';
 import {app} from 'electron';
 
-const db = this.db = new Sequelize( {
+export const sequelize = new Sequelize( {
   dialect: 'sqlite',
   storage: join(app.getPath('userData'), 'bmcl.db'),
 });
 
-db.addModels([
+sequelize.addModels([
   DirectoryModel,
   SettingModel,
 ]);
