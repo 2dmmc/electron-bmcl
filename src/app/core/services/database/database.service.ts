@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Loki} from '@lokidb/loki';
-import {app} from 'electron';
+import {remote} from 'electron';
 import {join} from 'path';
 import {FSStorage} from '@lokidb/fs-storage';
 
@@ -10,8 +10,8 @@ export class DatabaseService {
   private readonly dir: string;
 
   public constructor() {
-    this.dir = app.getPath('userData');
-    this.db = new Loki(join(this.dir, 'db.db'));
+    this.dir = remote.app.getPath('userData');
+    this.db = new Loki(join(this.dir, 'bmcl.db'));
   }
 
   public async initial() {
