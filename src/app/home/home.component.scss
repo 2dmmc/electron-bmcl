@@ -1,16 +1,42 @@
-.container {
+mat-sidenav-container {
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
 
-  background: url(../../assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
+// override
+.mat-list-base .mat-list-item .mat-list-item-content {
+  padding: 0 !important;
+}
 
-  .title {
-    color: white;
-    margin: 0;
-    padding: 50px 20px;
+mat-sidenav {
+  width: 12rem;
+
+  mat-list {
+    .last {
+      position: absolute;
+      bottom: 0
+    }
+
+
+    mat-list-item {
+      // override
+
+      a {
+        padding: 0;
+      }
+
+      .game {
+        display: flex;
+        align-items: center;
+
+        .desc {
+          display: flex;
+          flex-wrap: wrap;
+
+          span {
+            display: flex;
+          }
+        }
+      }
+    }
   }
 }

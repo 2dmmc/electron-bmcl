@@ -1,14 +1,30 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { TranslateModule } from '@ngx-translate/core';
+import {TranslateModule} from '@ngx-translate/core';
 
-import { PageNotFoundComponent } from './components/';
-import { WebviewDirective } from './directives/';
+import {WebviewDirective} from './directives/';
+import {FooterComponent, NavbarComponent, PageNotFoundComponent, SidebarComponent} from './components';
+import {RouterModule} from '@angular/router';
+
+const directives = [
+  WebviewDirective
+];
+
+const components = [
+  FooterComponent,
+  NavbarComponent,
+  PageNotFoundComponent,
+  SidebarComponent
+];
 
 @NgModule({
-  declarations: [PageNotFoundComponent, WebviewDirective],
-  imports: [CommonModule, TranslateModule],
-  exports: [TranslateModule, WebviewDirective]
+  declarations: [
+    ...directives,
+    ...components
+  ],
+  imports: [CommonModule, TranslateModule, RouterModule],
+  exports: [TranslateModule, WebviewDirective, SidebarComponent, NavbarComponent, FooterComponent]
 })
-export class SharedModule {}
+export class SharedModule {
+}

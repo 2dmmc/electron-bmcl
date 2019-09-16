@@ -1,0 +1,15 @@
+<div class="logo">
+  <a class="simple-text">
+    BMCL
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item" routerLinkActive="active">
+      <a [routerLink]="[menuItem.path]" class="nav-link">
+        <i class="material-icons">{{menuItem.icon}}</i>
+        <p>{{menuItem.title}}</p>
+      </a>
+    </li>
+  </ul>
+</div>
