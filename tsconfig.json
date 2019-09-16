@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "esnext",
+    "module": "commonjs",
     "typeRoots": [
       "node_modules/@types"
     ],
