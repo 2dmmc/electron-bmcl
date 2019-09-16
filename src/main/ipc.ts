@@ -1,4 +1,4 @@
-import {ipcMain, remote} from 'electron';
+import {ipcMain} from 'electron';
 import {SettingService} from './service/setting.service';
 
 const services = {

@@ -4,7 +4,8 @@ import {DirectoryModel} from '../model/directory.model';
 import {join} from 'path';
 
 export class GameService {
-  public constructor(private directory: DirectoryModel) {}
+  public constructor(private directory: DirectoryModel) {
+  }
 
   public async listVersions(): Promise<string[]> {
     const path = join(this.directory.path, '.minecraft', 'versions');

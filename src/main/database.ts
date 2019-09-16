@@ -6,7 +6,7 @@ import {app} from 'electron';
 import {DirectoryService} from './service/directory.service';
 import {GameService} from './service/game.service';
 
-export const sequelize = new Sequelize( {
+export const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: join(app.getPath('userData'), 'bmcl.db'),
 });
