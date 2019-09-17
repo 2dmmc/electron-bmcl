@@ -21,7 +21,7 @@ export interface ChildrenItems {
 
 export const ROUTES: RouteInfo[] = [
   // {path: '/home', title: '首页', icon: ''},
-  {path: '/games', title: '客户端列表', type: 'link', icontype: 'apps'},
+  {path: '/games', title: '客户端列表', type: 'link', icontype: 'games'},
   {path: '/setting', title: '设置', type: 'link', icontype: 'apps', class: 'nav-item-bottom'},
 ];
 
