@@ -243,7 +243,7 @@
   }
 
   .logo {
-    padding: 15px 0px;
+    padding: 15px 0;
     margin: 0;
     display: block;
     position: relative;
@@ -422,7 +422,7 @@
   }
 
   &[data-color="minecraft"] {
-    @include set-background-color-button($special-minecraft);
+    @include set-background-color-button($brand-primary);
     //@include sidebar-active-color(rgb(0, 206, 92))
   }
 
