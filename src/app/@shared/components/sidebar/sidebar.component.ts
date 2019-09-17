@@ -8,7 +8,7 @@ declare interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  {path: '/home', title: '首页', icon: ''},
+  // {path: '/home', title: '首页', icon: ''},
   {path: '/games', title: '游戏列表', icon: ''},
   {path: '/setting', title: '设置', icon: '', class: 'bottom'},
 ];

@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {DirectoryService} from '../../../main/service/directory.service';
-import {SettingService} from '../../../main/service/setting.service';
-import {ElectronService} from '../../@core/services';
+import {DirectoryService} from '../../main/service/directory.service';
+import {SettingService} from '../../main/service/setting.service';
+import {ElectronService} from '../@core/services';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-setting',
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.scss']
 })

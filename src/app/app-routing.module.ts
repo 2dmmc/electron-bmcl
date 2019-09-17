@@ -1,34 +1,27 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BmclLayoutComponent} from './@layouts/bmcl-layout/bmcl-layout.component';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 
-const routes: Routes = [
-  {
+const routes: Routes = [{
+  path: '',
+  redirectTo: 'games',
+  pathMatch: 'full'
+}, {
+  path: '',
+  children: [{
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  }, {
-    path: '',
-    component: BmclLayoutComponent,
-    children: [{
-      path: '',
-      loadChildren: './@layouts/bmcl-layout/bmcl-layout.module#BmclLayoutModule'
-    }]
-  },
-  // {
-  //   path: '**',
-  //   component: PageNotFoundComponent
-  // }
-];
+    loadChildren: './@layouts/bmcl-layout/bmcl-layout.module#BmclLayoutModule'
+  }],
+}];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
-      useHash: true
+      useHash: true,
+      enableTracing: false,
     })
   ],
   exports: [
