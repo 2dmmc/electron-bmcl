@@ -1,7 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-  font-family: ‘MicrosoftYaHei’;
-  src: url('assets/fonts/MicrosoftYaHei.woff') format('woff'){}
+  font-family: 'MicrosoftYaHei';
+  src: url('assets/fonts/MicrosoftYaHei.woff2') format('woff2')
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/MaterialIcons-Regular.woff2') format('woff2')
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
 }
 
 html, body {
