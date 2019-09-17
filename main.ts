@@ -18,6 +18,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true,
     },
+    icon: path.join(__dirname, 'assets/image/logo.jpg')
   });
 
   if (serve) {

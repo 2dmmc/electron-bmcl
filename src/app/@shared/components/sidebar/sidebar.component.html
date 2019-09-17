@@ -1,15 +1,41 @@
 <div class="logo">
-  <a class="simple-text">
-    BMCL
+  <a class="simple-text logo-mini">
+    <div class="logo-img">
+      <img src="/assets/image/logo.jpg"/>
+    </div>
+  </a>
+  <a href="#" class="simple-text logo-normal">
+    BMCL 2.0
   </a>
 </div>
+
 <div class="sidebar-wrapper">
   <ul class="nav">
-    <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item" routerLinkActive="active">
-      <a [routerLink]="[menuItem.path]" class="nav-link">
-        <i class="material-icons">{{menuItem.icon}}</i>
-        <p>{{menuItem.title}}</p>
+    <li routerLinkActive="active" *ngFor="let menuitem of menuItems" class="nav-item {{menuitem.class}}">
+      <!--If is a single link-->
+      <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'" class="nav-link">
+        <i class="material-icons">{{menuitem.icontype}}</i>
+        <p>{{menuitem.title}}</p>
       </a>
+      <!--If it have a submenu-->
+      <a data-toggle="collapse" href="#{{menuitem.collapse}}" *ngIf="menuitem.type === 'sub'" (click)="updatePS()"
+         class="nav-link">
+        <i class="material-icons">{{menuitem.icontype}}</i>
+        <p>{{menuitem.title}}<b class="caret"></b></p>
+      </a>
+
+      <!--Display the submenu items-->
+      <div id="{{menuitem.collapse}}" class="collapse" *ngIf="menuitem.type === 'sub'">
+        <ul class="nav">
+          <li routerLinkActive="active" *ngFor="let childitem of menuitem.children" class="nav-item">
+            <a [routerLink]="[menuitem.path, childitem.path]" class="nav-link">
+              <span class="sidebar-mini">{{childitem.ab}}</span>
+              <span class="sidebar-normal">{{childitem.title}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </li>
   </ul>
+
 </div>

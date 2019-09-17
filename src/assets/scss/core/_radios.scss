@@ -17,7 +17,6 @@
   .form-check-label {
     cursor: pointer;
     padding-left: 25px;
-    position: relative;
     @include mdb-label-color-toggle-focus();
 
     span {

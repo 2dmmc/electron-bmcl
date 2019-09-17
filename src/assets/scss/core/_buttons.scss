@@ -247,20 +247,3 @@
 .btn-no-ripple .mat-button-ripple {
   display: none;
 }
-
-.mat-button, .mat-icon-button {
-  background: transparent;
-}
-
-.mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay {
-  opacity: 0;
-  background-color: transparent !important;
-}
-
-button:focus {
-  outline: none;
-}
-
-.mat-button .mat-button-ripple {
-  border-radius: inherit;
-}
