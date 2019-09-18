@@ -9,10 +9,15 @@
     flex-wrap: wrap;
     flex-direction: column;
 
+    .dropdown, .dropdown-toggle {
+      width: 100%;
+    }
+
     .dropdown-menu {
       a {
         font-size: 12px;
         padding: 6px;
+        text-align: left;
       }
 
       li {

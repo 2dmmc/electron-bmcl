@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row" *ngIf="games.favorite.length !== 0">
   <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ml-auto mr-auto">
     <div class="card card-plain">
       <div class="card-header card-header-rose card-header-text">
         <div class="card-text">
           <h4 class="card-title">
-            常用({{mockGames.favorite.length}})
+            常用({{games.favorite.length}})
           </h4>
         </div>
 
       </div>
       <div class="row card-body">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 cards" *ngFor="let game of mockGames.favorite">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 cards" *ngFor="let game of games.favorite">
           <app-game [game]=game></app-game>
         </div>
       </div>
@@ -23,12 +23,12 @@
       <div class="card-header card-header-info card-header-text">
         <div class="card-text">
           <h4 class="card-title">
-            全部({{mockGames.total.length}})
+            全部({{games.total.length}})
           </h4>
         </div>
       </div>
       <div class="row card-body">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 cards" *ngFor="let game of mockGames.total">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 cards" *ngFor="let game of games.total">
           <app-game [game]=game></app-game>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 cards">

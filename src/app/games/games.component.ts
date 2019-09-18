@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ElectronService} from '../@core/services';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {ElectronService, GamesService} from '../@core/services';
 import {IGame} from '../@model/game.interface';
 
 @Component({
@@ -8,66 +8,25 @@ import {IGame} from '../@model/game.interface';
   styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
-  private mockGames: {
-    favorite: IGame[],
+  private games: {
     total: IGame[],
+    favorite: IGame[],
   };
 
-  constructor(electronService: ElectronService) {
-    this.mockGames = {
-      favorite: [{
-        name: 'fmc',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }],
-      total: [{
-        name: 'fmc',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }, {
-          name: '1.7.2',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }, {
-        name: 'bmcl',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }, {
-          name: '1.7.2',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }, {
-        name: 'rmca',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }, {
-          name: '1.7.2',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }, {
-        name: '2dmmc 8th',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }, {
-          name: '1.7.2',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }, {
-        name: '2dmmc 9th',
-        versions: [{
-          name: '1.7.2 forge-16.3.384',
-        }, {
-          name: '1.7.2',
-        }],
-        currentVersion: '1.7.2 forge-16.3.384'
-      }]
+  constructor(electronService: ElectronService,
+              private gamesService: GamesService) {
+    this.games = {
+      total: [],
+      favorite: [],
     };
   }
 
-  ngOnInit() {
-
+  async ngOnInit() {
+    const remoteGames = await this.gamesService.getList();
+    this.games = {
+      total: remoteGames,
+      favorite: remoteGames.filter((e) => e.isFavorite)
+    };
+    console.log(this.games);
   }
-
 }
