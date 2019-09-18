@@ -1,8 +1,16 @@
 import {DirectoryModel} from '../model/directory.model';
+import {IGame} from '../../app/@model/game.interface';
+import {GameService} from './game.service';
 
 export class DirectoryService {
-  public static async list(): Promise<DirectoryModel[]> {
-    return DirectoryModel.findAll();
+  public static async list(): Promise<IGame[]> {
+    return DirectoryModel.findAll()
+      .map(async (e) => {
+        const game = e.toJSON() as IGame;
+        const gameService = new GameService(e);
+        game.versions = await gameService.listVersions();
+        return game;
+      });
   }
 
   public static async listFavorite(): Promise<DirectoryModel[]> {
