@@ -1,11 +1,29 @@
 <div class="wrapper">
-<!--  <div class="`sidebar`" data-background-color="black" data-color="minecraft">-->
-<!--    <app-sidebar></app-sidebar>-->
-<!--    <div class="sidebar-background"></div>-->
-<!--  </div>-->
-  <div class="main-panel">
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ml-auto mr-auto">
+        <div class="page-categories">
+          <ul class="nav nav-pills nav-pills-minecraft nav-pills-icons justify-content-center" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/games" routerLinkActive="active" data-toggle="tab">
+                <i class="material-icons">apps</i>
+                客户端管理
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/setting" routerLinkActive="active" data-toggle="tab">
+                <i class="material-icons">apps</i>
+                设置
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
