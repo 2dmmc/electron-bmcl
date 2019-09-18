@@ -5,6 +5,7 @@ import {GamesRoutingModule} from './games-routing.module';
 
 import {GamesComponent} from './games.component';
 import {MaterialModule} from '../app.module';
+import {SharedModule} from '../@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {MaterialModule} from '../app.module';
   imports: [
     MaterialModule,
     CommonModule,
-    GamesRoutingModule
+    GamesRoutingModule,
+    SharedModule
   ],
   providers: [
   ]

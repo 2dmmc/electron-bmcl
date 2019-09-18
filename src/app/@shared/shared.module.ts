@@ -4,8 +4,9 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {WebviewDirective} from './directives/';
-import {FooterComponent, NavbarComponent, PageNotFoundComponent, SidebarComponent} from './components';
+import {FooterComponent, GameAddComponent, GameComponent, NavbarComponent, PageNotFoundComponent, SidebarComponent} from './components';
 import {RouterModule} from '@angular/router';
+import {MaterialModule} from '../app.module';
 
 const directives = [
   WebviewDirective
@@ -15,7 +16,9 @@ const components = [
   FooterComponent,
   NavbarComponent,
   PageNotFoundComponent,
-  SidebarComponent
+  SidebarComponent,
+  GameComponent,
+  GameAddComponent,
 ];
 
 @NgModule({
@@ -23,8 +26,17 @@ const components = [
     ...directives,
     ...components
   ],
-  imports: [CommonModule, TranslateModule, RouterModule],
-  exports: [TranslateModule, WebviewDirective, SidebarComponent, NavbarComponent, FooterComponent]
+  imports: [
+    CommonModule,
+    TranslateModule,
+    RouterModule,
+    MaterialModule
+  ],
+  exports: [
+    TranslateModule,
+    WebviewDirective,
+    ...components
+  ]
 })
 export class SharedModule {
 }

@@ -1,0 +1,19 @@
+<div class="card card-pricing card-raised">
+  <div class="card-body">
+    <h3>{{game.name}}</h3>
+    <div class="dropdown">
+      <button mat-raised-button class="dropdown-toggle btn btn-link btn-sm" data-toggle="dropdown">
+        {{game.currentVersion}}
+        <b class="caret"></b>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-left">
+        <li class="dropdown-header">选择版本</li>
+        <li *ngFor="let version of game.versions">
+          <a href="#">{{version.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <button mat-raised-button class="btn btn-primary">开始游戏</button>
+  </div>
+</div>
+
