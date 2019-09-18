@@ -5,8 +5,15 @@ export class DirectoryService {
     return DirectoryModel.findAll();
   }
 
+  public static async listFavorite(): Promise<DirectoryModel[]> {
+    return DirectoryModel.findAll({
+      where: {
+        isFavorite: true,
+      },
+    });
+  }
+
   public static async add(name: string, path: string): Promise<DirectoryModel> {
-    console.log(name);
     return DirectoryModel.create({
       name, path
     });
@@ -20,5 +27,17 @@ export class DirectoryService {
 
   public static async getByName(name: string): Promise<DirectoryModel> {
     return DirectoryModel.findOne({where: {name}});
+  }
+
+  public static async markFavorite(name: string): Promise<void> {
+    await DirectoryModel.update({isFavorite: true}, {
+      where: {name},
+    });
+  }
+
+  public static async unmarkFavorite(name: string): Promise<void> {
+    await DirectoryModel.update({isFavorite: false}, {
+      where: {name},
+    });
   }
 }

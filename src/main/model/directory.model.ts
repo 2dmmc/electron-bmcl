@@ -6,4 +6,6 @@ import {Column, Model, PrimaryKey, Table, Unique} from 'sequelize-typescript';
 export class DirectoryModel extends Model<DirectoryModel> {
   @PrimaryKey @Column name: string;
   @Unique @Column path: string;
+  @Column isFavorite: boolean;
+  @Column currentVersion: string;
 }
