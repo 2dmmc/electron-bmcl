@@ -51,7 +51,9 @@ export class DirectoryService {
 
   public static async setCurrentVersion(name: string, version: string): Promise<void> {
     const dir = await this.getByName(name);
-    if (!dir) throw new Error('no such directory');
+    if (!dir) {
+      throw new Error('no such directory');
+    }
     const game = new GameService(dir);
     const versions = await game.listVersions();
     if (!versions.find((e) => e.name === version)) {
