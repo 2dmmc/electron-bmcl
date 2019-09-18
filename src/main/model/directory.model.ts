@@ -1,4 +1,4 @@
-import {Column, Model, NotNull, PrimaryKey, Table, Unique} from 'sequelize-typescript';
+import {Column, Default, Model, NotNull, PrimaryKey, Table, Unique} from 'sequelize-typescript';
 
 @Table({
   modelName: 'directory',
@@ -6,6 +6,6 @@ import {Column, Model, NotNull, PrimaryKey, Table, Unique} from 'sequelize-types
 export class DirectoryModel extends Model<DirectoryModel> {
   @PrimaryKey @Column @NotNull name: string;
   @Unique @Column @NotNull path: string;
-  @Column isFavorite: boolean;
-  @Column currentVersion: string;
+  @Column @Default(false) @NotNull isFavorite: boolean;
+  @Column @Default('') @NotNull currentVersion: string;
 }
