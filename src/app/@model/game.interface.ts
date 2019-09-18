@@ -5,5 +5,5 @@ export interface IGame {
   path: string;
   currentVersion: string;
   versions: IVersion[];
-  isFavorite?: boolean;
+  isFavorite: boolean;
 }
