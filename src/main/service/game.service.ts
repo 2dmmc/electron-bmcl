@@ -9,7 +9,7 @@ export class GameService {
   }
 
   public async listVersions(): Promise<Array<IVersion>> {
-    const path = join(this.directory.path, '.minecraft', 'versions');
+    const path = join(this.directory.path, 'versions');
     const files = await readdir(path);
     return Bluebird.filter(files, async (file) => {
       const s = await stat(join(path, file));
