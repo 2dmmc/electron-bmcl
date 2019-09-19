@@ -4,7 +4,6 @@ import {SettingService} from '../../main/service/setting.service';
 import {ElectronService} from '../@core/services';
 
 @Component({
-  selector: 'app-setting',
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.scss']
 })

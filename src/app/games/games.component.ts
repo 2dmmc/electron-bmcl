@@ -4,7 +4,6 @@ import {IGamesList} from '../@model/games-list.interface';
 
 
 @Component({
-  selector: 'app-games',
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.scss']
 })
