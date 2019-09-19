@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
+import {from, Observable} from 'rxjs';
 import {ElectronService} from '..';
 import {DirectoryService} from '../../../../main/service/directory.service';
 import {IGame} from '../../../@model/game.interface';
-import {DirectoryModel} from '../../../../main/model/directory.model';
+import {IGamesList} from '../../../@model/games-list.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,18 @@ export class GamesService {
     this.directoryService = rendererService.DirectoryService;
   }
 
-  public async getList(): Promise<IGame[]> {
-    return await this.directoryService.list();
+  private getList(): Observable<IGame[]> {
+    return from(this.directoryService.list());
   }
 
-  public async getFavoriteList(): Promise<DirectoryModel[]> {
-    return await this.directoryService.listFavorite();
+  public getGamesList(): Observable<IGamesList> {
+    return new Observable<IGamesList>(observer => {
+      this.getList().subscribe((games: IGame[]) => {
+        observer.next({
+          total: games,
+          favorite: games.filter((e) => e.isFavorite)
+        });
+      });
+    });
   }
-
 }
