@@ -17,7 +17,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row" *ngIf="games.total.length !== 0">
   <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ml-auto mr-auto">
     <div class="card card-plain">
       <div class="card-header card-header-info card-header-text">
@@ -36,5 +36,10 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="row" *ngIf="games.total.length == 0">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 ml-auto mr-auto text-center">
+    <span>哦豁, 这还没有客户端, 快去<a href="#">添加</a>一个吧</span>
   </div>
 </div>
