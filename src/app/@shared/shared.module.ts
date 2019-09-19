@@ -4,7 +4,14 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 
 import {WebviewDirective} from './directives/';
-import {FooterComponent, GameAddComponent, GameComponent, NavbarComponent, PageNotFoundComponent, SidebarComponent} from './components';
+import {
+  FooterComponent,
+  GameAddButtonComponent,
+  GameComponent,
+  NavbarComponent,
+  PageNotFoundComponent,
+  SidebarComponent
+} from './components';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../app.module';
 
@@ -18,7 +25,7 @@ const components = [
   PageNotFoundComponent,
   SidebarComponent,
   GameComponent,
-  GameAddComponent,
+  GameAddButtonComponent,
 ];
 
 @NgModule({
