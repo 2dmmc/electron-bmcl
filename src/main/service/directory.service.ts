@@ -62,4 +62,11 @@ export class DirectoryService {
     dir.currentVersion = version;
     await dir.save();
   }
+
+  public static async isNameExists(name: string): Promise<boolean> {
+    return DirectoryModel.findOne({
+      where: {name},
+    })
+      .then((doc) => !!doc);
+  }
 }
