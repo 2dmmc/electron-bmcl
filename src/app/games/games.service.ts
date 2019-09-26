@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
 import {from, Observable} from 'rxjs';
-import {ElectronService} from '..';
-import {DirectoryService} from '../../../../main/service/directory.service';
-import {IGame} from '../../../@model/game.interface';
-import {IGamesList} from '../../../@model/games-list.interface';
+import {DirectoryService} from '../../main/service/directory.service';
+import {ElectronService} from '../@core/services';
+import {IGame} from '../@model/game.interface';
+import {IGamesList} from '../@model/games-list.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class GamesService {
   private directoryService: typeof DirectoryService;
 

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GamesService} from '../@core/services';
+import {GamesService} from './games.service';
 import {IGamesList} from '../@model/games-list.interface';
 
 
