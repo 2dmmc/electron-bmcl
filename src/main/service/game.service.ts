@@ -3,6 +3,7 @@ import {readdir, stat} from 'fs-extra';
 import {DirectoryModel} from '../model/directory.model';
 import {join} from 'path';
 import {IVersion} from '../../app/@model/version.interface';
+import {GameSettingModel} from '../model/game-setting';
 
 export class GameService {
   public constructor(private directory: DirectoryModel) {
@@ -16,6 +17,27 @@ export class GameService {
       return s.isDirectory();
     })
       .map((name) => ({name}));
+  }
+
+  public async setSetting(key: string, value: string): Promise<void> {
+    await GameSettingModel.upsert({
+      key,
+      value,
+      directoryId: this.directory.id,
+    });
+  }
+
+  public async getSetting(key: string): Promise<string> {
+    const setting = await GameSettingModel.findOne({
+      where: {
+        key,
+        directoryId: this.directory.id,
+      }
+    });
+    if (!setting) {
+      return null;
+    }
+    return setting.value;
   }
 }
 
