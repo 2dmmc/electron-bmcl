@@ -1,8 +1,12 @@
 import {SettingModel} from '../model/setting.model';
 import {JavaService} from './java.service';
 
+export enum EnumSettingKey {
+  javas = 'javas',
+}
+
 export class SettingService {
-  public static async getByKey(key: string): Promise<string> {
+  public static async getByKey(key: EnumSettingKey): Promise<string> {
     const setting = await SettingModel.findOne({
       where: {key},
     });
@@ -13,7 +17,7 @@ export class SettingService {
     }
   }
 
-  public static async setByKey(key: string, value: string | object): Promise<void> {
+  public static async setByKey(key: EnumSettingKey, value: string | object): Promise<void> {
     if (typeof value === 'object') {
       value = JSON.stringify(value);
     }
@@ -23,11 +27,11 @@ export class SettingService {
   }
 
   public static async init() {
-    const javas = await this.getByKey('javas');
+    const javas = await this.getByKey(EnumSettingKey.javas);
     if (!javas) {
       const javaHome = await JavaService.getDefaultJava();
       if (javaHome) {
-        await this.setByKey('javas', [javaHome]);
+        await this.setByKey(EnumSettingKey.javas, [javaHome]);
       }
     }
   }
