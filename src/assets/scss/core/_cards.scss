@@ -171,7 +171,7 @@
   &.bg-primary,
   &.card-rotate.bg-primary .front,
   &.card-rotate.bg-primary .back {
-    background: linear-gradient(60deg, $purple-400, $purple-600);
+    background: linear-gradient(60deg, $brand-primary, $brand-primary);
   }
 
   .card-header-info .card-icon,
@@ -224,8 +224,8 @@
   .card-header-primary .card-text {
     @include shadow-big-color($brand-primary);
 
-    //@include shadow-8dp-color($brand-primary);
-    //@include shadow-16dp-color($brand-primary);
+    @include shadow-8dp-color($brand-primary);
+    @include shadow-16dp-color($brand-primary);
   }
 
   .card-header-danger .card-icon,
